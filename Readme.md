@@ -64,6 +64,7 @@ MONGODB_URI="mongodb+srv://..."
 
 ## Architecture
 twitter-trends-fetcher/
+```
 ├── app/
 │   ├── services/
 │   │   ├── __pycache__/
@@ -82,7 +83,7 @@ twitter-trends-fetcher/
 ├── README.md                    # Documentation
 ├── requirements.txt             # Dependencies
 └── run.py                       # Entry point
-
+```
 ## Deployment
 
 1. Verify environment configuration:
