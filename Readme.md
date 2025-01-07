@@ -136,10 +136,10 @@ The application implements comprehensive error handling for:
 
 ## Screenshots
 
-![Dashboard Interface](./images/image-1.png)
-![Trend Analysis View](./images/image.png)
-![Historical Data](./images/image-2.png)
-![Error Handling](./images/image-3.png)
+![Dashboard Interface](./images/image-1.jpg)
+![Trend Analysis View](./images/image.jpg)
+![Historical Data](./images/image-2.jpg)
+![Error Handling](./images/image-3.jpg)
 
 ## Development Workflow
 
