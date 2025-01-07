@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}Twitter Trends{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="text-center mb-4">
+        <a href="/fetch_trends" class="btn btn-primary">Click here to run the script</a>
+    </div>
+
+    {% if trends %}
+    <div class="trends-content">
+        <p class="mb-3">These are the most happening topics as on {{ record.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+        
+        <ul class="list-unstyled mb-4">
+            {% for trend in trends %}
+            <li>- {{ trend }}</li>
+            {% endfor %}
+        </ul>
+
+        <p class="mb-3">The IP address used for this query was {{ ip_address }}</p>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                Here's a JSON extract of this record from the MongoDB:
+            </div>
+            <div class="card-body">
+                <pre><code>[
+    {
+        "_id": {{ object_id | tojson }},
+        {% for trend in trends %}
+        "nameoftrend{{ loop.index }}": {{ trend | tojson }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+    }
+]</code></pre>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="/fetch_trends" class="btn btn-primary">Click here to run the query again</a>
+        </div>
+    </div>
+    {% else %}
+    <p class="text-center text-muted">No trends fetched yet.</p>
+    {% if error %}
+        <div class="alert alert-danger">{{error}}</div>
+    {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
